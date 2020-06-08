@@ -7,6 +7,12 @@
         <result property="password" column="password"/>
     </resultMap>
     <select id="findAll" resultMap="BaseResultMap">
-        SELECT * FROM user
+        SELECT *
+        FROM user
+    </select>
+    <select id="getUserById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT *
+        FROM user
+        WHERE id = #{id}
     </select>
 </mapper>

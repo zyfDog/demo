@@ -1,24 +1,34 @@
-#���ʸ�·��
+#访问根路径
 
-#Ӧ������
+#应用名称
 spring.application.name: demo
 
-#���ʶ˿ں�
+#访问端口号
 server.port: 8080
 
-#�����ʽ
+#编码格式
 server.tomcat.uri-encoding: utf-8
 
-#���ݿ��������
+#数据库相关配置
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/demo
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC
     username: root
     password: 123456
 
-#session��������
-  server:
-    servlet:
-      session:
-        timeout: 30m
+#开启Mybatis驼峰映射
+mybatis:
+  #mapper配置文件：mapper的xml文件位置
+  mapper-locations: classpath:mapper/*.xml
+  #配置xml文件中resultType返回值的包位置，如果未配置请使用全包名(在mapper中）
+  #type-aliases-package: com.example.demo.entity
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+#session生命周期
+server:
+  servlet:
+    session:
+      timeout: 30m

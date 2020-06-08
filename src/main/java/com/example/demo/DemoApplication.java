@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /*用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），
 一般这个注解在类中，通常方法需要配合注解@RequestMapping。*/
 @Controller
+/*@MapperScan("com.example.demo.dao.mapper")*/
 public class DemoApplication {
 
     @GetMapping("/")
@@ -23,6 +24,7 @@ public class DemoApplication {
     public String index(){
         return "Hello World!";
     }
+
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }

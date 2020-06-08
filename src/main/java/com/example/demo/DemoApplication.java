@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /*用于定义控制器类，在spring项目中由控制器负责将用户发来的URL请求转发到对应的服务接口（service层），
 一般这个注解在类中，通常方法需要配合注解@RequestMapping。*/
 @Controller
-/*@MapperScan("com.example.demo.dao.mapper")*/
+@MapperScan("com.example.demo.dao.mapper")
 public class DemoApplication {
 
     @GetMapping("/")
